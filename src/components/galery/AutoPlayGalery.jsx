@@ -15,11 +15,28 @@ function AutoPlayGalery() {
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,
+        centerMode: true,
         autoplay: true,
-        speed: 2500,
-        autoplaySpeed: 2500,
+        speed: 1600,
+        autoplaySpeed: 1600,
         arrows: false,
-        cssEase: "linear"
+        cssEase: "linear",
+        responsive: [
+            {
+              breakpoint: 1024, // 1024px dan kichik ekranlarda
+              settings: {
+                slidesToShow: 3,
+                centerPadding: "40px",
+              }
+            },
+            {
+              breakpoint: 640, // 640px dan kichik (telefonlarda)
+              settings: {
+                slidesToShow: 2,
+                centerPadding: "20px",
+              }
+            }
+          ]
     };
     return (
         <div className="slider-container">

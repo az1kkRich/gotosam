@@ -7,29 +7,9 @@
     margin-top: 4.5rem;
 }
 
-@media screen and (max-width: 768px) {
-    .slidediv {
-        height: 30vh;
-        margin-top: 3rem;
-    }
 
-    .text-p-home {
-        margin: 0;
-    }
-    .text-home {
-        margin: 0;
-    }
-    
 
-}
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .slidediv {
-        height: 50vh;
-        margin-top: 3.6rem;
-    }
-    
-}
 
 .rgba-color {
     background-color: rgba(0, 0, 0, 0.3);
@@ -138,4 +118,47 @@
         font-size: 12px;
         letter-spacing: 1px;
     }
+
+    .slidediv {
+        height: 30vh;
+        margin-top: 3rem;
+    }
+
+    .text-p-home {
+        margin: 0;
+    }
+    .text-home {
+        margin: 0;
+    }
 }
+
+@media (min-width: 768px) and (max-width: 1000px) {
+    .logotext {
+        font-size: 27px;
+    }
+
+    .links ul {
+        gap: 1rem;
+    }
+
+    .slidediv {
+        height: 50vh;
+        margin-top: 3.6rem;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1280px) {
+    .logotext {
+        font-size: 35px;
+    }
+
+    .links ul {
+        gap: 2rem;
+    }
+
+    .slidediv {
+        height: 60vh;
+        margin-top: 4rem;
+    }
+}
+
