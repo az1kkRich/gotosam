@@ -12,13 +12,13 @@ import img6 from "../../assets/registon.jpg";
 
 function AutoPlayGalery() {
     const settings = {
-        dots: true,
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 1500,
-        autoplaySpeed: 1500,
+        speed: 2500,
+        autoplaySpeed: 2500,
+        arrows: false,
         cssEase: "linear"
     };
     return (
