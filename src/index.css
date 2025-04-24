@@ -6,8 +6,24 @@
   top: 0;
   left: 0;
   z-index: 1000;
+  background-image: url('./assets/samarkan_naqsh_wide.jpg');
+  background-size: cover;
+  background-position: center;
 }
+
+#header .hrgba {
+  background-color: rgba(0, 0, 0, 0.8 );
+}
+
 
 a {
   text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  #header .hrgba{
+  background-color: rgba(0, 0, 0, 0.6 );
+    
+  }
+  
 }

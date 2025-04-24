@@ -10,6 +10,11 @@ const Events = () => {
                 <div className="container">
                     <div className="row">
                         <EventCard />
+                        <EventCard />
+                        <EventCard />
+                        <EventCard />
+                        <EventCard />
+                        <EventCard />
                     </div>
                 </div>
 
