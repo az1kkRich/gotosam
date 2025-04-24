@@ -7,6 +7,30 @@
     margin-top: 4.5rem;
 }
 
+@media screen and (max-width: 768px) {
+    .slidediv {
+        height: 30vh;
+        margin-top: 3rem;
+    }
+
+    .text-p-home {
+        margin: 0;
+    }
+    .text-home {
+        margin: 0;
+    }
+    
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .slidediv {
+        height: 50vh;
+        margin-top: 3.6rem;
+    }
+    
+}
+
 .rgba-color {
     background-color: rgba(0, 0, 0, 0.3);
     width: 100%;
@@ -103,4 +127,15 @@
 
 .home-btn:active {
     transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .text-home {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+    .text-p-home {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
 }

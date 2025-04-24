@@ -30,28 +30,40 @@ function SamplePrevArrow(props) {
 const ServicesSlider = () => {
 
     const settings = {
-        // centermode 
         className: "center",
         centerMode: true,
-
-        infinite: true,
         centerPadding: "60px",
+        infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,
         speed: 500,
-        //autoplay
         autoplay: true,
         autoplaySpeed: 5000,
-        
-        // prev next 
         nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
-
-    };
+        prevArrow: <SamplePrevArrow />,
+        
+        responsive: [
+          {
+            breakpoint: 1024, // 1024px dan kichik ekranlarda
+            settings: {
+              slidesToShow: 2,
+              centerPadding: "40px",
+            }
+          },
+          {
+            breakpoint: 640, // 640px dan kichik (telefonlarda)
+            settings: {
+              slidesToShow: 1,
+              centerPadding: "20px",
+            }
+          }
+        ]
+      };
+      
 
 
     return (
-        <div className="slider-container ">
+        <div className="slider-container mx-3">
             <Slider {...settings}>
                 <div>
 
