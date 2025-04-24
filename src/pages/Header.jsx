@@ -9,11 +9,11 @@ const Header = () => {
         </div>
         <div className='links'>
             <ul className='flex gap-5 mb-0 '>
-                <li className='text-amber-300 text-xl cursor-pointer hover:text-amber-100'>Tours</li>
+                <li className='text-amber-300 text-xl cursor-pointer hover:text-amber-100'>Tourlar</li>
                 <li className='text-amber-300 text-xl cursor-pointer hover:text-amber-100'>Homestay</li>
-                <li className='text-amber-300 text-xl cursor-pointer hover:text-amber-100'>Silk-Road</li>
-                <li className='text-amber-300 text-xl cursor-pointer hover:text-amber-100'>Services</li>
-                <li className='text-amber-300 text-xl cursor-pointer hover:text-amber-100'>Events</li>
+                <li className='text-amber-300 text-xl cursor-pointer hover:text-amber-100'>Xizmatlar</li>
+                <li className='text-amber-300 text-xl cursor-pointer hover:text-amber-100'>Galleriya</li>
+                <li className='text-amber-300 text-xl cursor-pointer hover:text-amber-100'>Eventlar</li>
             </ul>
         </div>
       </header>
