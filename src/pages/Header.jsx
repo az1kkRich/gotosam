@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
   return (
     <>
-      <header className='flex justify-center md:justify-between items-center bg-amber-950 py-2 px-7 md:px-5 xl:px-17 ' id='header'>
+      <header className='flex justify-center md:justify-between items-center bg-amber-950 py-3 px-7  md:px-5 xl:px-17 ' id='header'>
         <div className="hd-title">
           <a href="#home" >
             <h1 className='text-amber-300 text-4xl text-center logotext md:text-start cursor-pointer'>𝔾𝕠𝕋𝕠𝕊𝕒𝕞𝕒𝕣𝕜𝕒𝕟𝕕</h1>
