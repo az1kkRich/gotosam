@@ -11,8 +11,8 @@
   background-position: center;
 }
 
-#header .hrgba {
-  background-color: rgba(0, 0, 0, 0.8 );
+.hrgba {
+  background-color: rgba(0, 0, 0, 0.83 );
 }
 
 
@@ -21,9 +21,12 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-  #header .hrgba{
-  background-color: rgba(0, 0, 0, 0.7 );
-    
+  .hrgba{
+    background-color: rgba(0, 0, 0, 0.7 );    
   }
   
+}
+
+#footer {
+  background-image: url('./assets/samarkan_naqsh_wide.jpg');
 }

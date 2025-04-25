@@ -4,7 +4,7 @@ import EventCard from './EventCard'
 const Events = () => {
     return (
         <>
-            <div className="bg-red-100 py-3 scroll-mt-17 " id='galery'>
+            <div className="bg-red-100 py-3 scroll-mt-17 " id='events'>
                 <h1 className='text-center text-4xl mb-4 underline text-red-500 font-bold'> 𝑬𝒗𝒆𝒏𝒕𝒍𝒂𝒓</h1>
 
                 <div className="container">

@@ -25,7 +25,7 @@ const Header = () => {
               <a href="#galery">
                 <li className='text-amber-300 text-xl cursor-pointer hover:text-amber-100'>Galeriya</li>
               </a>
-              <a href="#ourTours">
+              <a href="#events">
                 <li className='text-amber-300 text-xl cursor-pointer hover:text-amber-100'>Eventlar</li>
               </a>
             </ul>
