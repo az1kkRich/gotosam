@@ -45,7 +45,7 @@ const Footer = () => {
               <div className="row g-3 mb-3 align-items-center">
                 
                 <div className="col-auto">
-                  <input type="password" id="inputPassword6" className="form-control" aria-describedby="passwordHelpInline" placeholder='Send we Messeage!'/>
+                  <input type="text" className="form-control" aria-describedby="passwordHelpInline" placeholder='Send we Messeage!'/>
                 </div>
                 <div className="col-auto">
                   <button className='btn btn-primary'>Send</button>

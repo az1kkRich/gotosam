@@ -27,7 +27,7 @@ const TourCard = () => {
                                     <p className='mb-0 text-xs md:text-base'>Bir kishi uchun narxi:</p>
                                     <span className='text-amber-700 text-2xl font-bold '> <span className='text-sm text-amber-600'>UZS</span> 1 mln </span>
                                 </div>
-                                <Link to={"/tour/1"} className='w-2/5 md:w-full xl:w-1/3'>
+                                <Link to={"/tours/1"} className='w-2/5 md:w-full xl:w-1/3'>
                                     <button className='btn btn-success w-full '>Batafsil</button>
                                 
                                 </Link>
