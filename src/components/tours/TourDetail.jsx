@@ -202,6 +202,7 @@ const TourDetail = () => {
                 <label className="block text-gray-700 font-medium mb-1">Choose a date</label>
                 <div className="relative">
                   <input
+                  placeholder="Select date"
                     type="date"
                     className="w-full appearance-none border border-gray-300 rounded-xl py-3 px-4 pr-10 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
                   />
