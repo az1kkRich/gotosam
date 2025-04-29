@@ -17,8 +17,8 @@
 }
 
 .slick-dots.slick-thumb li.slick-active img {
-    border: 1px solid #000;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border: 2px solid #aca900;
+    box-shadow: 0 0 5px rgba(106, 255, 0, 0.5);
 }
 
 .detCategory:hover {

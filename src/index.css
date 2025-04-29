@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+/* BU NUMBER INPUTDAGI BELGINI YO'QOTISH UCHUN */
+/* Chrome, Safari, Edge uchun */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox uchun */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
 
 #header {
   position: fixed;
