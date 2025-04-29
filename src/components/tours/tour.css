@@ -43,7 +43,7 @@
 @media (max-width: 768px) {
     .tourminiimg {
         width: 100%;
-        height: 30vh;
+        height: 20vh;
     }
     .slick-dots.slick-thumb li img {
         width: 40px; 

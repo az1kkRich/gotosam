@@ -1,6 +1,6 @@
 import { Car, Coffee, Minus, Plus, Send, ShowerHead, Tv, Users, UsersRound, Wifi } from "lucide-react";
 import TourCardImg from "./TourImgSlick";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
@@ -9,14 +9,18 @@ import "react-phone-number-input/style.css";
 // mui
 import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button';
-import { IconButton, TextField } from "@mui/material";
-import GuestCounter from "./jsut";
+import { TextField } from "@mui/material";
 
 const TourDetail = () => {
   const [iconSize, setIconSize] = useState(24);
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
+
+  const fullNameRef = useRef(null)
+  const handleRef = () => {
+    fullNameRef.current.focus()
+  }
 
   const handleDecrement = (setter, value) => {
     if (value > 0) setter(value - 1);
@@ -158,7 +162,7 @@ const TourDetail = () => {
                   <Rating name="half-rating" className="shadow rounded-2xl pt-1 px-4 ml-[-20px]" size="large" defaultValue={5} precision={0.5} />
                 </div>
 
-                <Button variant="contained" className="p-2 md:p-4!" endIcon={<Send size={15} />}>
+                <Button variant="contained" onClick={handleRef} className="p-2 md:p-4!" endIcon={<Send size={15} />}>
                   Request for More Info
                 </Button>
               </div>
@@ -168,11 +172,11 @@ const TourDetail = () => {
           <div className="w-full md:w-2/6 ">
             <div className="bg-white p-4 border shadow-sm">
               <h1 className="font-semibold  text-md md:text-xl lg:text-2xl  text-yellow-600 font-mono">From $59.00  </h1>
-              <p className=" text-sm text-yellow-800 mt-[-9px]">per adult </p>
+              <p className=" text-sm text-yellow-800 mt-[-7px]">per adult </p>
 
               <h1 className="font-medium mt-2 text-md md:text-xl lg:text-2xl ">Enter your information  </h1>
 
-              <TextField id="fullName" label="Fullname" variant="outlined" type="text" className="w-full mt-2" />
+              <TextField id="fullName" inputRef={fullNameRef} label="Fullname" variant="outlined" type="text" className="w-full mt-2" />
 
               <TextField id="email" label="Email" variant="outlined" type="email" className="w-full mt-3" />
 
@@ -212,9 +216,18 @@ const TourDetail = () => {
                 {guestRow("Infants", "0 - 2", 43, infants, setInfants)}
 
                 <div className="pt-4  flex justify-between font-semibold">
-                  <span>Total Guests:</span>
-                  <span>{adults + children + infants}</span>
+                  <div>
+                    <span>Total Guests: </span>
+                    <span className="text-red-500">{adults + children + infants}</span>
+
+                  </div>
+                  <div>
+                    <span>Total Price: </span>
+                    <span className="text-amber-700">${(adults * 59) + (children * 59) + (infants * 43) }</span>
+
+                  </div>
                 </div>
+
               </div>
 
 
