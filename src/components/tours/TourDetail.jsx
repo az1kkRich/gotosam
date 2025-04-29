@@ -4,7 +4,7 @@ const TourDetail = () => {
   return (
     <>
       <div id="tourDetail" className="mt-[5rem]">
-        <div className="container ">
+        <div className="container" >
           <div className="row">
             <div className="col-md-8">
               <TourCardImg />
