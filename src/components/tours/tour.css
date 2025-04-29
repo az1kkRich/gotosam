@@ -1,6 +1,6 @@
 .tourminiimg {
     width: 100%;
-    height: 40vw;
+    height: 50vh;
 }
 
 .slick-dots.slick-thumb li img {
@@ -21,7 +21,30 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
+.detCategory:hover {
+    cursor:grabbing;
+    background-color: rgb(255, 148, 148);
+    color: #fff;
+}
+
+.mainDes {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    letter-spacing: 1.3px;
+    word-spacing: 5px;
+}
+
+.listyle {
+    list-style:circle;
+    margin-left: 10px;
+    
+}
+
 @media (max-width: 768px) {
+    .tourminiimg {
+        width: 100%;
+        height: 30vh;
+    }
     .slick-dots.slick-thumb li img {
         width: 40px; 
         height: 35px;
@@ -31,4 +54,24 @@
         height: 35px; 
         top: 2rem;
     }
+
+    .detCategory {
+        font-size: 0.5rem;
+        /* gap: 2px !important; */
+        padding-block: 4px !important;
+        padding-inline: 5px !important;
+    }
+
+    .qulayliklar {
+        gap: 4px !important;
+    }
+
+    .mainDes {
+        font-size: .8rem ;
+        line-height: 1.3rem;
+        letter-spacing: 1.2px;
+        word-spacing: 3px;
+    } 
+
+    
 }
