@@ -67,11 +67,31 @@
     }
 
     .mainDes {
-        font-size: .8rem ;
+        font-size: 1rem ;
         line-height: 1.3rem;
         letter-spacing: 1.2px;
         word-spacing: 3px;
     } 
+
+    
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .tourminiimg {
+        width: 100%;
+        height: 20vh;
+    }
+    .slick-dots.slick-thumb li img {
+        width: 60px; 
+        height: 50px;
+    }
+    .slick-dots.slick-thumb li {
+        width: 60px; 
+        height: 50px; 
+        top: 2rem;
+    }
+
+    
 
     
 }

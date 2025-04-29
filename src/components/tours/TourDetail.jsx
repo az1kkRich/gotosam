@@ -24,9 +24,9 @@ const TourDetail = () => {
 
   return (
     <>
-      <div id="tourDetail" className="bg-green-100 mt-[3rem] mb-[-1.5rem] py-5">
+      <div id="tourDetail" className="bg-green-50 mt-[3rem] mb-[-1.5rem] py-5">
         <div className="container-sm" >
-          <div className="row mb-4">
+          <div className="row ">
             <div className="col-md-8">
               <TourCardImg />
               <hr />
@@ -94,7 +94,7 @@ const TourDetail = () => {
 
                 </div>
                 <hr />
-                <div className="flex flex-col md:flex-row justify-between items-center">
+                <div className="flex flex-col lg:flex-row justify-between items-center">
                   <div className="flex my-3 items-center" >
                     <div className="shadow-2xl bg-blue-700 rounded-full flex items-center justify-center w-20 h-20 text-[35px] z-10 text-white  "><p>4.86</p></div>
                     <Rating name="half-rating" className="shadow rounded-2xl pt-1 text-blue-400! px-4 ml-[-20px]" size="large" defaultValue={5} precision={0.5} />
@@ -105,6 +105,9 @@ const TourDetail = () => {
                   </Button>
                 </div>
               </div>
+            </div>
+            <div className="col-md-4">
+              1
             </div>
           </div>
         </div>
