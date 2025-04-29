@@ -1,4 +1,4 @@
-import { Car, Coffee, Minus, Plus, Send, ShowerHead, Tv, Users, UsersRound, Wifi } from "lucide-react";
+import { Car, Coffee, Minus, Plus, Send, SendHorizontal, ShowerHead, Tv, Users, UsersRound, Wifi } from "lucide-react";
 import TourCardImg from "./TourImgSlick";
 import { useEffect, useState, useMemo, useRef } from "react";
 
@@ -13,14 +13,47 @@ import { TextField } from "@mui/material";
 
 const TourDetail = () => {
   const [iconSize, setIconSize] = useState(24);
+
+  const [phone, setPhone] = useState("");
+  const [isValid, setIsValid] = useState(true);
+
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
 
+  // bu yerda ref yaratamiz va inputga focus
   const fullNameRef = useRef(null)
   const handleRef = () => {
     fullNameRef.current.focus()
   }
+
+  // bu yerda nomer va guestlarni olish uchun useRef
+  const submitBtn = useRef(null)
+  const isDisabled = (adults + children + infants === 0)
+
+  useEffect(() => {
+    if (submitBtn.current) {
+      if (isDisabled) {
+        submitBtn.current.disabled = true;
+      } else {
+        submitBtn.current.disabled = false;
+      }
+    }
+  }, [isValid, adults, children, infants]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!phone) {
+      alert("Please enter your phone number");
+      return;
+    }
+  }
+  
+
+
+
+  // bu yerda minus va plus tugmachalari uchun funksiya
 
   const handleDecrement = (setter, value) => {
     if (value > 0) setter(value - 1);
@@ -32,8 +65,8 @@ const TourDetail = () => {
 
   // bu person nomer olish uchuun funksiya
   const guestRow = (label, ageRange, price, value, setter) => (
-    <div className="flex items-center justify-between border-b py-3">
-      <div>
+    <div className="flex flex-col md:flex-row  items-center justify-between border-b py-3">
+      <div className="flex flex-row items-center gap-2 md:flex-col! ">
         <p className="font-semibold">{label}</p>
         <p className="text-sm text-gray-500 ">Age {ageRange}</p>
         <p className="text-md text-green-700 font-mono font-medium">${price}</p>
@@ -104,8 +137,7 @@ const TourDetail = () => {
 
 
   // bu phone number input
-  const [phone, setPhone] = useState("");
-  const [isValid, setIsValid] = useState(true);
+ 
 
   const handleChange = (value) => {
     setPhone(value);
@@ -114,7 +146,7 @@ const TourDetail = () => {
 
 
   return (
-    <div id="tourDetail" className="bg-green-50 mt-[3rem] mb-[-1.5rem] py-5">
+    <div  className="bg-green-50 mt-[3rem] mb-[-1.5rem] py-5">
       <div className="max-w-[90rem] mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-3">
           <div className="w-full md:w-4/6">
@@ -170,15 +202,15 @@ const TourDetail = () => {
           </div>
 
           <div className="w-full md:w-2/6 ">
-            <div className="bg-white p-4 border shadow-sm">
+            <form  onSubmit={handleSubmit} className="bg-white p-4 border shadow-sm" >
               <h1 className="font-semibold  text-md md:text-xl lg:text-2xl  text-yellow-600 font-mono">From $59.00  </h1>
               <p className=" text-sm text-yellow-800 mt-[-7px]">per adult </p>
 
               <h1 className="font-medium mt-2 text-md md:text-xl lg:text-2xl ">Enter your information  </h1>
 
-              <TextField id="fullName" inputRef={fullNameRef} label="Fullname" variant="outlined" type="text" className="w-full mt-2" />
+              <TextField id="fullName" inputRef={fullNameRef} label="Fullname" variant="outlined" type="text" className="w-full mt-2" required/>
 
-              <TextField id="email" label="Email" variant="outlined" type="email" className="w-full mt-3" />
+              <TextField id="email" label="Email" variant="outlined" type="email" className="w-full mt-3" required/>
 
 
               <PhoneInput
@@ -187,6 +219,7 @@ const TourDetail = () => {
                 value={phone}
                 onChange={handleChange}
                 className="border p-3 rounded w-full mt-3"
+                required
               />
               {!isValid && (
                 <p className="text-red-500 text-sm mt-2">❌ Invalid phone number</p>
@@ -202,7 +235,8 @@ const TourDetail = () => {
                 <label className="block text-gray-700 font-medium mb-1">Choose a date</label>
                 <div className="relative">
                   <input
-                  placeholder="Select date"
+                    required
+                    label="date"
                     type="date"
                     className="w-full appearance-none border border-gray-300 rounded-xl py-3 px-4 pr-10 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
                   />
@@ -216,7 +250,7 @@ const TourDetail = () => {
                 {guestRow("Children", "3 - 7", 59, children, setChildren)}
                 {guestRow("Infants", "0 - 2", 43, infants, setInfants)}
 
-                <div className="pt-4  flex justify-between font-semibold">
+                <div className="pt-4 flex flex-col md:flex-row justify-between font-semibold">
                   <div>
                     <span>Total Guests: </span>
                     <span className="text-red-500">{adults + children + infants}</span>
@@ -224,16 +258,21 @@ const TourDetail = () => {
                   </div>
                   <div>
                     <span>Total Price: </span>
-                    <span className="text-amber-700">${(adults * 59) + (children * 59) + (infants * 43) }</span>
+                    <span className="text-amber-700">${(adults * 59) + (children * 59) + (infants * 43)}</span>
 
                   </div>
                 </div>
 
+                <div className="w-full flex items-center">
+                  <Button variant="contained" ref={submitBtn} disabled={isDisabled} type="submit" className="mt-4 w-1/2 mx-auto" endIcon={<SendHorizontal />}>
+                    Send
+                  </Button>
+
+                </div>
               </div>
 
 
-
-            </div>
+            </form>
 
 
           </div>
