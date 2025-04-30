@@ -1,4 +1,4 @@
-import { Car, Coffee, Minus, Plus, Send, SendHorizontal, ShowerHead, Tv, Users, UsersRound, Wifi } from "lucide-react";
+import { Minus, Plus, Send, SendHorizontal,  } from "lucide-react";
 import TourCardImg from "./TourImgSlick";
 import { useEffect, useState, useMemo, useRef } from "react";
 
@@ -10,6 +10,7 @@ import "react-phone-number-input/style.css";
 import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button';
 import { TextField } from "@mui/material";
+import Qulayliklar from "./qulayliklar";
 
 const TourDetail = () => {
   const [iconSize, setIconSize] = useState(24);
@@ -44,8 +45,8 @@ const TourDetail = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!phone) {
-      alert("Please enter your phone number");
+    if (!isValidPhoneNumber(phone )) {
+      alert("Please enter your phone number correctly!");
       return;
     }
   }
@@ -106,39 +107,13 @@ const TourDetail = () => {
 
   // BU useMemo Content
   const facilities = useMemo(() => (
-    <div className="qulayliklar mt-4 flex flex-wrap gap-3">
-      <div className="detCategory flex gap-2 py-2 px-3 items-center border-2 rounded-2xl">
-        <Coffee size={iconSize} strokeWidth={0.75} />
-        <h4>Breakfast</h4>
-      </div>
-      <div className="detCategory flex gap-2 py-2 px-3 items-center border-2 rounded-2xl">
-        <Car size={iconSize} strokeWidth={0.75} />
-        <h4>On-site parking</h4>
-      </div>
-      <div className="detCategory flex gap-2 py-2 px-3 items-center border-2 rounded-2xl">
-        <Wifi size={iconSize} strokeWidth={0.75} />
-        <h4>Free WiFi</h4>
-      </div>
-      <div className="detCategory flex gap-2 py-2 px-3 items-center border-2 rounded-2xl">
-        <ShowerHead size={iconSize} strokeWidth={0.75} />
-        <h4>Private bathroom</h4>
-      </div>
-      <div className="detCategory flex gap-2 py-2 px-3 items-center border-2 rounded-2xl">
-        <UsersRound size={iconSize} strokeWidth={0.75} />
-        <h4>Family rooms</h4>
-      </div>
-      <div className="detCategory flex gap-2 py-2 px-3 items-center border-2 rounded-2xl">
-        <Tv size={iconSize} strokeWidth={0.75} />
-        <h4>Flat-screen TV</h4>
-      </div>
-    </div>
+    <Qulayliklar iconSize={iconSize}/>
   ), [iconSize]);
 
 
 
   // bu phone number input
  
-
   const handleChange = (value) => {
     setPhone(value);
     setIsValid(isValidPhoneNumber(value || ""));

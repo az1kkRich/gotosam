@@ -1,7 +1,7 @@
 .slidediv {
-    background-image: url(../../assets/registon.jpg);
+    background-image: url(../../assets/headerMain.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: center ;
     width: 100%;
     height: 80vh;
     margin-top: 4.5rem;
