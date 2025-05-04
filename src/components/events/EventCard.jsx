@@ -1,6 +1,6 @@
 import React from 'react'
 import cardImg from '../../assets/tourists.jpg'
-import { ArrowRightFromLine, MapPinCheckInside, MapPinHouse } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const EventCard = () => {
   return (
@@ -11,13 +11,15 @@ const EventCard = () => {
           <img src={cardImg} className='img-fluid' alt="..." />
           <h4 className='mt-2 text-emerald-900 font-semibold text-2xl' > One-day Tour to Samarkand from Tashkent</h4>
           <p >One of the most convenient Samarkand tours, this high-speed day trip.</p>
-          
+
           <div className="flex justify-content-between items-center gap-2 mt-3 md:block xl:flex">
             <div className='w-3/5 md:w-full xl:w-1/2 xl:border-r-3! border-r-2  md:border-r-0 border-r-red-600'>
               <p className='mb-0 tracking-tighter md:tracking-normal'>Bunda ishtirok etganlar:</p>
               <span className='text-amber-700 text-2xl font-bold '> 33 kishi</span>
             </div>
-            <button className='btn btn-danger w-2/5 md:w-full xl:w-1/3 '>Batafsil</button>
+            <Link to={'/events/1'} className='w-2/5 md:w-full xl:w-1/3'>
+              <button className='btn btn-danger w-full '>Batafsil</button>
+            </Link>
           </div>
         </div>
       </div>

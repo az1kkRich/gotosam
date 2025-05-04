@@ -5,11 +5,11 @@ import "react-phone-number-input/style.css";
 import Rating from "@mui/material/Rating";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
-import TourCardImg from "./TourImgSlick";
-import Qulayliklar from "./qulayliklar";
+import cardImg from '../../assets/tourists.jpg'
 
-const TourDetail = () => {
-  const [iconSize, setIconSize] = useState(24);
+
+
+const EventDetail = () => {
   const [phone, setPhone] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [adults, setAdults] = useState(1);
@@ -69,20 +69,7 @@ const TourDetail = () => {
     </div>
   );
 
-  // Ekran o'lchamiga qarab ikonkaning o'lchamini o'zgartirish
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setIconSize(width < 640 ? 13 : 27);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // Qulayliklar komponenti uchun memoizatsiya
-  const facilities = useMemo(() => <Qulayliklar iconSize={iconSize} />, [iconSize]);
+  
 
   // Telefon raqamini boshqarish
   const handleChange = (value) => {
@@ -91,41 +78,26 @@ const TourDetail = () => {
   };
 
   return (
-    <div className="bg-green-50 mt-[3rem] mb-[-1.5rem] py-5">
+    <div className="bg-green-200 mt-[3rem] mb-[-1.5rem] py-5">
       <div className="max-w-[90rem] mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-3">
           <div className="w-full md:w-4/6">
-            <TourCardImg />
+          <img src={cardImg} className='img-fluid w-full' alt="..." />
+
             <div className="tourcard mt-3 p-4 border rounded shadow-sm bg-white">
               <h4 className="text-xl md:text-2xl xl:text-3xl text-amber-700 font-medium">
                 One-day Tour to Samarkand from Tashkent
               </h4>
               <p className="text-sm md:text-lg">
                 One of the most convenient Samarkand tours, this high-speed day trip.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam laboriosam tempora modi quas culpa reprehenderit, maxime dolorem deleniti natus ab. Voluptates iusto, labore vel cum quod unde et a recusandae?
               </p>
-              <div className="locationdiv mt-3 flex items-center justify-between gap-2 xl:gap-4 w-full">
-                <span className="ms-2 font-bold">Tashkent</span>
-                <hr className="w-[80%]" />
-                <span className="ms-2 font-bold">Samarqand</span>
-              </div>
-              {facilities}
-              <p className="mainDes mt-4 mb-3">
-                Featuring free WiFi throughout the property, HotelF1 Paris Saint Ouen Marché Aux Puces Rénové offers rooms with a flat-screen TV. The hotel is just a few steps from the flea market and a 10-minute walk from Garibaldi Metro Station.
-              </p>
-              <hr />
-              <div className="my-3">
-                <h1 className="text-xl text-red-500 font-semibold">In Tour: </h1>
-                <ul className="ml-3 list-disc list-inside">
-                  {Array.from({ length: 9 }).map((_, i) => (
-                    <li key={i}>All transfers: 1-2 pax by Sedan type car, 3-7 pax on minivan/van, 8-16 pax by 20 seat bus;</li>
-                  ))}
-                </ul>
-              </div>
-              <hr />
+              
+              
               <div className="flex flex-col lg:flex-row justify-between items-center">
                 <div className="flex my-3 items-center">
-                  <div className="shadow-2xl bg-blue-700 rounded-full flex items-center justify-center w-20 h-20 text-[35px] z-10 text-white">
-                    <p>4.86</p>
+                  <div className="shadow-2xl bg-green-700 rounded-full flex items-center justify-center w-20 h-20 text-[35px] z-10 text-white">
+                    <p>4.69</p>
                   </div>
                   <Rating name="half-rating" className="shadow rounded-2xl pt-1 px-4 ml-[-20px]" size="large" defaultValue={5} precision={0.5} />
                 </div>
@@ -200,4 +172,4 @@ const TourDetail = () => {
   );
 };
 
-export default TourDetail;
+export default EventDetail;
