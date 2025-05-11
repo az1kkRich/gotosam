@@ -70,7 +70,7 @@ const ServicesSlider = () => {
                     <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white">
                         <img src={cardImg} className='img-fluid' alt="..." />
                         <h4 className='mt-2 text-emerald-900' > One-day Tour to Samarkand from Tashkent</h4>
-                        <p >One of the most convenient Samarkand tours, this high-speed day </p>
+                        
 
 
                     </div>
@@ -81,7 +81,7 @@ const ServicesSlider = () => {
                     <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white">
                         <img src={cardImg} className='img-fluid' alt="..." />
                         <h4 className='mt-2 text-emerald-900' > One-day Tour to Samarkand from Tashkent</h4>
-                        <p >One of the most convenient Samarkand tours, this high-speed day </p>
+                        
 
 
                     </div>
@@ -90,7 +90,7 @@ const ServicesSlider = () => {
                     <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white">
                         <img src={cardImg} className='img-fluid' alt="..." />
                         <h4 className='mt-2 text-emerald-900' > One-day Tour to Samarkand from Tashkent</h4>
-                        <p >One of the most convenient Samarkand tours, this high-speed day </p>
+                        
 
 
                     </div>
@@ -99,7 +99,7 @@ const ServicesSlider = () => {
                     <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white">
                         <img src={cardImg} className='img-fluid' alt="..." />
                         <h4 className='mt-2 text-emerald-900' > One-day Tour to Samarkand from Tashkent</h4>
-                        <p >One of the most convenient Samarkand tours, this high-speed day </p>
+                        
 
 
                     </div>
@@ -108,7 +108,7 @@ const ServicesSlider = () => {
                     <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white">
                         <img src={cardImg} className='img-fluid' alt="..." />
                         <h4 className='mt-2 text-emerald-900' > One-day Tour to Samarkand from Tashkent</h4>
-                        <p >One of the most convenient Samarkand tours, this high-speed day </p>
+                        
 
 
                     </div>
@@ -117,7 +117,7 @@ const ServicesSlider = () => {
                     <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white">
                         <img src={cardImg} className='img-fluid' alt="..." />
                         <h4 className='mt-2 text-emerald-900' > One-day Tour to Samarkand from Tashkent</h4>
-                        <p >One of the most convenient Samarkand tours, this high-speed day </p>
+                        
 
 
                     </div>

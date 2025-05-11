@@ -1,7 +1,10 @@
 import React from 'react'
 import './home.css'
+import { useTranslation } from 'react-i18next';
+
 
 const HomeSlider = () => {
+    const { t } = useTranslation();
     return (
         <>
             <div className="slidediv" id='home'>
@@ -9,15 +12,15 @@ const HomeSlider = () => {
 
                     <div className="text-div">
 
-                        <h1 className='text-home '>Welcome to GotoSamarkand.com</h1>
+                        <h1 className='text-home '>Welcome to GotoSamarkang.com</h1>
                     </div>
                     <div className="text-div">
-                        <p className='text-p-home  mt-4'>Biz bilan tour paket topishingiz oson!</p>
+                        <p className='text-p-home  mt-4'>{t("headerTarif")}!</p>
 
                     </div>
                     <a href="#ourTours" className='hidden md:block'>
 
-                        <button className ='home-btn'>See Tours</button>
+                        <button className ='home-btn'>{t("seeTours")}</button>
                     </a>
                 </div>
             </div>

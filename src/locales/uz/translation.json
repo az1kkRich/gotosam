@@ -1,0 +1,33 @@
+{
+    "tours":"Tour Packetlar",
+    "services":"Xizmatlar",
+    "gallery":"Galereya",
+    "events":"Eventlar",
+    "WelcometoGotoSam":"GotoSamarkand.com ga xush kelibsiz",
+    "headerTarif":"Biz bilan sayohat paketini topish oson",
+    "seeTours":"Turlarni ko'rish",
+    "cardInPrice": "Bir kishi uchun narxi",
+    "more":"Batafsil",
+
+    "tourCard": {
+        "Breakfast":"Nonushta",
+        "On-siteparking":"Avtoturargoh",
+        "FreeWi-Fi":"Bepul Wi-Fi",
+        "Privatebathroom":"Shaxsiy hammom",
+        "Familyrooms":"Oila xonasi",
+        "Flat-screenTV":"Tepaga o'rnatilgan televizor",
+        "InTour":"Tour packet ichida",
+        "ReqForMore":"Qo'shimcha ma'lumot olish",
+        "from":"Boshlanishi",
+        "perAdult":"Bir kishi uchun",
+        "Enteryour_information":"Ma'lumotlaringizni kiriting",
+        "Select date and guests":"Sana va mehmonlarni tanlang",
+        "Select guests":"Mehmonlarni sonini tanlang",
+        "Adults":"Yoshi kattalar",
+        "Children":"Bolalar",
+        "Infants":"Chaqaloqlar",
+        "Total Guests":"Jami mehmonlar",
+        "Total Price":"Jami narx",
+        "send":"Yuborish"
+    }
+}

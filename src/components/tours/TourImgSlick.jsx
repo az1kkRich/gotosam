@@ -16,6 +16,7 @@ function TourCardImg() {
     dots: true,
     dotsClass: "slick-dots slick-thumb ",
     infinite: true,
+    arrows: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1

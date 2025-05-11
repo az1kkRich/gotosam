@@ -1,0 +1,32 @@
+{
+    "tours":"Туры",
+    "services":"Услуги",
+    "gallery":"Галерея",
+    "events":"События",
+    "WelcometoGotoSam":"Wel GotoSamarkand.com",
+    "headerTarif":"Легко найти туристическую путевку с нами",
+    "seeTours":"Посмотреть туры",
+    "cardInPrice": "Цена за человека",
+    "more":"Больше",
+    "tourCard": {
+        "Breakfast":"Завтрак",
+        "On-siteparking":"Парковка на территории",
+        "FreeWi-Fi":"Бесплатный Wi-Fi",
+        "Privatebathroom":"Собственная ванная комната",
+        "Familyrooms":"Семейные номера",
+        "Flat-screenTV":"Телевизор с плоским экраном",
+        "InTour":"Входит в тур",
+        "ReqForMore":"Запросить дополнительную информацию",
+        "from":"От",
+        "perAdult":"на человека",
+        "Enteryour_information":"Введите вашу информацию",
+        "Select date and guests":"Выберите дату и гостей",
+        "Select guests":"Выберите гостей",
+        "Adults":"Взрослые",
+        "Children":"Дети",
+        "Infants":"Младенцы",
+        "Total Guests":"Всего гостей",
+        "Total Price":"Общая цена",
+        "send":"Отправить"
+    }
+}

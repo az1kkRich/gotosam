@@ -1,0 +1,32 @@
+{
+    "tours":"ツアー",
+    "services":"サービス",
+    "gallery":"ギャラリー",
+    "events":"イベント",
+    "WelcometoGotoSam":"GotoSamarkand.comへようこそ",
+    "headerTarif":"私たちと一緒にツアーパッケージを見つけるのは簡単です",
+    "seeTours":"ツアーを見る",
+    "cardInPrice": "価格は1人あたり",
+    "more":"もっと",
+    "tourCard": {
+        "Breakfast":"朝食",
+        "On-siteparking":"敷地内駐車場",
+        "FreeWi-Fi":"無料Wi-Fi",
+        "Privatebathroom":"専用バスルーム",
+        "Familyrooms":"ファミリールーム",
+        "Flat-screenTV":"薄型テレビ",
+        "InTour":"ツアーに含まれています",
+        "ReqForMore":"詳細をリクエスト",
+        "from":"から",
+        "perAdult":"大人1人あたり",
+        "Enteryour_information":"情報を入力してください",
+        "Select date and guests":"日付とゲストを選択してください",
+        "Select guests":"ゲストを選択",
+        "Adults":"大人",
+        "Children":"子供",
+        "Infants":"乳児",
+        "Total Guests":"合計ゲスト数",
+        "Total Price":"合計金額",
+        "send":"送信"
+    }
+}

@@ -6,6 +6,8 @@ import { Routes, Route } from 'react-router-dom';
 import TourDetail from './components/tours/TourDetail';
 import EventDetail from './components/events/EventDetail';
 
+import './i18n';
+
 function App() {
 
   return (

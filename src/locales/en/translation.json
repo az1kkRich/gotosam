@@ -1,0 +1,33 @@
+{
+    "tours":"Tours",
+    "services":"Services",
+    "gallery":"Gallery",
+    "events":"Events",
+    "WelcometoGotoSam":"Welcome to GotoSamarkand.com",
+    "headerTarif":"It is easy to find a tour package with us",
+    "seeTours":"See Tours",
+    "cardInPrice": "The price is per person",
+    "more":"More Info",
+
+    "tourCard": {
+        "Breakfast":"Breakfast",
+        "On-siteparking":"On-site parking",
+        "FreeWi-Fi":"Free Wi-Fi",
+        "Privatebathroom":"Private bathroom",
+        "Familyrooms":"Family rooms",
+        "Flat-screenTV":"Flat-screen TV",
+        "InTour":"Included in the tour",
+        "ReqForMore":"Request for more info",
+        "from":"From",
+        "perAdult":"per adult",
+        "Enteryour_information":"Enter your information",
+        "Select date and guests":"Select date and guests",
+        "Select guests":"Select guests",
+        "Adults":"Adults",
+        "Children":"Children",
+        "Infants":"Infants",
+        "Total Guests":"Total Guests",
+        "Total Price":"Total Price",
+        "send":"Send"
+    }
+}
