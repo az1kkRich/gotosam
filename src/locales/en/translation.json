@@ -1,5 +1,6 @@
 {
     "tours":"Tours",
+    "poptours":"Popular Tours",
     "services":"Services",
     "gallery":"Gallery",
     "events":"Events",
@@ -8,6 +9,8 @@
     "seeTours":"See Tours",
     "cardInPrice": "The price is per person",
     "more":"More Info",
+    "datetime":"Date and Time",
+    "enddatetime":"End Date and Time",
 
     "tourCard": {
         "Breakfast":"Breakfast",

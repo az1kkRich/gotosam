@@ -1,5 +1,6 @@
 {
     "tours":"ツアー",
+    "poptours": "人気のある ツアー",
     "services":"サービス",
     "gallery":"ギャラリー",
     "events":"イベント",
@@ -8,6 +9,9 @@
     "seeTours":"ツアーを見る",
     "cardInPrice": "価格は1人あたり",
     "more":"もっと",
+    "datetime":"日付と時刻",
+    "enddatetime":"終了日時",
+
     "tourCard": {
         "Breakfast":"朝食",
         "On-siteparking":"敷地内駐車場",

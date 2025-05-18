@@ -1,6 +1,6 @@
 import React from "react";
-import ServicesSlider from "./ServicesSlider";
 import { useTranslation } from "react-i18next";
+import ServicesCard from "./ServicesCard";
 
 const Services = () => {
  
@@ -12,7 +12,16 @@ const Services = () => {
                 <h1 className='text-center text-4xl mb-4 underline italic text-red-500 font-bold'> {t("services")} </h1>
 
                 <div className="container">
-                    <ServicesSlider />
+                    <div className="row">
+                        <ServicesCard />
+                        <ServicesCard />
+                        <ServicesCard />
+                        <ServicesCard />
+                        <ServicesCard />
+                        <ServicesCard />
+                        <ServicesCard />
+                        <ServicesCard />
+                    </div>
 
                 </div>
 

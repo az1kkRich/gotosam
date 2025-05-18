@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <>
       <header id='header' className='max-w-[100vw]'>
-        <div className="flex hrgba justify-between md:justify-between items-center py-2 md:py-4! px-7  md:px-5 xl:px-17">
+        <div className="flex hrgba justify-between md:justify-between items-center py-2 md:py-2! px-7  md:px-5 xl:px-17">
 
           <div className="hd-title">
             <Link to="/"  >

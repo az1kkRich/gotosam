@@ -1,32 +1,125 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import cardImg from '../../assets/tourists.jpg'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import axios from 'axios'
+import { ArrowRightFromLine, GitCommitHorizontal, MapPinCheckInside, MapPinHouse } from 'lucide-react'
 
 const EventCard = () => {
 
-  const {t} = useTranslation()
+  const [event, setEvent] = useState([])
+  const [loader, setLoader] = useState(true);
+
+
+  const envUrl = import.meta.env.VITE_API_URL
+
+  const currentLang = localStorage.getItem("selectedLanguage")
+
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`${envUrl}/events`)
+        setEvent(res.data)
+        console.log(res.data);
+        setLoader(false)
+
+      } catch (error) {
+        console.log(error);
+
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  const { t } = useTranslation()
   return (
     <>
-      <div className="col-md-6 col-xl-4 mb-3">
 
-        <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white">
-          <img src={cardImg} className='w-full h-[200px]' alt="..." />
-          <h4 className='mt-2 text-emerald-900 font-semibold text-2xl ' > One-day Tour to Samarkand from Tashkent</h4>
-          <p >One of the most convenient Samarkand tours, this high-speed day trip.</p>
+      {loader && (
+        <>
 
-          <div className="flex justify-content-between items-center gap-2 mt-2 md:block xl:flex">
-            <div className='w-3/5 md:w-full xl:w-1/2 xl:border-r-3! border-r-2  md:border-r-0 border-r-red-600'>
-              <p className='mb-0 tracking-tighter  text-emerald-600 md:tracking-normal'>{t("cardInPrice")}:</p>
-              <span className='text-red-700 text-2xl font-bold '> <span className='text-sm text-amber-600'>USD</span> 99$ </span>
-              
+          <div className="col-md-6 col-xl-4 mb-3">
+            <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white animate-pulse">
+              <div className="w-full h-[200px] bg-gray-300 rounded"></div>
+              <div className="mt-2 h-6 bg-gray-300 rounded w-3/4"></div>
+              <div className="h-4 bg-gray-300 rounded w-5/6 mt-2"></div>
+              <div className="flex justify-content-between gap-1 items-center mt-3 md:block xl:flex">         
+                
+              </div>
             </div>
-            <Link to={'/events/1'} className='w-2/5 md:w-full xl:w-1/3'>
-              <button className='btn btn-danger w-full '>{t("more")}</button>
-            </Link>
+
+          </div>
+          <div className="col-md-6 col-xl-4 mb-3">
+            <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white animate-pulse">
+              <div className="w-full h-[200px] bg-gray-300 rounded"></div>
+              <div className="mt-2 h-6 bg-gray-300 rounded w-3/4"></div>
+              <div className="h-4 bg-gray-300 rounded w-5/6 mt-2"></div>
+              <div className="flex justify-content-between gap-1 items-center mt-3 md:block xl:flex">         
+                
+              </div>
+            </div>
+
+          </div>
+          <div className="col-md-6 col-xl-4 mb-3">
+            <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white animate-pulse">
+              <div className="w-full h-[200px] bg-gray-300 rounded"></div>
+              <div className="mt-2 h-6 bg-gray-300 rounded w-3/4"></div>
+              <div className="h-4 bg-gray-300 rounded w-5/6 mt-2"></div>
+              <div className="flex justify-content-between gap-1 items-center mt-3 md:block xl:flex">         
+                
+              </div>
+            </div>
+
+          </div>
+          
+        </>
+
+      )}
+
+      {!loader && event.map((evnt) => (
+
+        <div className="col-md-6 col-xl-4 mb-3">
+
+          <div className="tourcard m-1  border rounded shadow-sm bg-white">
+            <img src={evnt.imagePath} className='w-full h-[200px]' alt="..." />
+
+            <div className="flex w-full">
+              <div className="w-1/8 my-2">
+                <h3 className='text-center font-extrabold font-mono text-yellow-400'>
+                  {new Date(evnt.startDate).toLocaleString(currentLang, { month: 'short' }).toLocaleUpperCase()}
+                </h3>
+                <h1 className='text-center text-blue-800 font-mono text-2xl font-bold scale-y-[1.6] my-2 '>
+                  {new Date(evnt.startDate).getDate()}
+                </h1>
+              </div>
+              <div className="w-6/8 my-2">
+                <div className="flex justify-between items-center">
+                  <p className='font-mono font-semibold'>{new Date(evnt.startDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}  </p>
+                  <GitCommitHorizontal size={26} color="#009dff" strokeWidth={1.5} />
+                  <p className='font-mono font-semibold'>{new Date(evnt.endDate).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}  </p>
+                </div>
+                <Link to={`/events/${evnt._id}`} className='w-2/5 md:w-full xl:w-1/3'>
+                  <h1 className='mt-0 text-2xl text-blue-700 wrap-break-word font-semibold font-mono hover:text-blue-500 hover:underline'>{evnt.title[currentLang]}</h1>
+                </Link>
+              </div>
+              <div className="w-1/8 my-2">
+                <h3 className='text-center font-extrabold font-mono text-yellow-400'>
+                  {new Date(evnt.endDate).toLocaleString(currentLang, { month: 'short' }).toLocaleUpperCase()}
+                </h3>
+                <h1 className='text-center text-blue-800 font-mono text-2xl font-bold scale-y-[1.6] my-2 '>
+                  {new Date(evnt.endDate).getDate()}
+                </h1>
+              </div>
+            </div>
+            
+            
           </div>
         </div>
-      </div>
+      ))}
+
     </>
   )
 }

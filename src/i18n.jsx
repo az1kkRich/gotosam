@@ -1,35 +1,34 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-// json
-import en  from "./locales/en/translation.json";
-import uz  from "./locales/uz/translation.json";
-import ru  from "./locales/ru/translation.json";
-import jp  from "./locales/jp/translation.json";
 
-const resource = {
-    en: {
-        translation: en,
-    },
-    uz: {
-        translation: uz,
-    },
-    ru: {
-        translation: ru,
-    },
-    jp: {
-        translation: jp,
-    },
-}
+// Tarjimalar
+import en from "./locales/en/translation.json";
+import uz from "./locales/uz/translation.json";
+import ru from "./locales/ru/translation.json";
+import jp from "./locales/jp/translation.json";
 
-// Main i18n configuration
+// Resurslar
+const resources = {
+  en: { translation: en },
+  uz: { translation: uz },
+  ru: { translation: ru },
+  ja: { translation: jp },
+};
+
+// 💾 LocalStorage'dan tilni o‘qish
+const savedLanguage = localStorage.getItem("selectedLanguage") || "en";
+
+// i18n sozlamalari
 i18n
-.use(initReactI18next)
-.init({
-    resources: resource,
-    lng: "en",
+  .use(initReactI18next)
+  .init({
+    resources,
+    lng: savedLanguage,        // 💾 localStorage'dagi tilni ishlatish
     fallbackLng: "en",
     interpolation: {
-        escapeValue: false,
+      escapeValue: false,
     },
-    debug: true,
-})
+    debug: false,
+  });
+
+export default i18n;

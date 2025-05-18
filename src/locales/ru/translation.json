@@ -1,5 +1,6 @@
 {
     "tours":"Туры",
+    "poptours":"Популярные Туры",
     "services":"Услуги",
     "gallery":"Галерея",
     "events":"События",
@@ -8,6 +9,9 @@
     "seeTours":"Посмотреть туры",
     "cardInPrice": "Цена за человека",
     "more":"Больше",
+    "datetime":"Дата и время",
+    "enddatetime":"Дата и время окончания",
+
     "tourCard": {
         "Breakfast":"Завтрак",
         "On-siteparking":"Парковка на территории",

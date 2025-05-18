@@ -1,5 +1,6 @@
 {
-    "tours":"Tour Packetlar",
+    "tours":"Tourlar",
+    "poptours":"Ommabop Tourlar",
     "services":"Xizmatlar",
     "gallery":"Galereya",
     "events":"Eventlar",
@@ -8,6 +9,8 @@
     "seeTours":"Turlarni ko'rish",
     "cardInPrice": "Bir kishi uchun narxi",
     "more":"Batafsil",
+    "datetime":"Boshlanish kuni va Vaqti",
+    "enddatetime":"Tugash kuni va Vaqti",
 
     "tourCard": {
         "Breakfast":"Nonushta",
@@ -17,7 +20,7 @@
         "Familyrooms":"Oila xonasi",
         "Flat-screenTV":"Tepaga o'rnatilgan televizor",
         "InTour":"Tour packet ichida",
-        "ReqForMore":"Qo'shimcha ma'lumot olish",
+        "ReqForMore":"Qo'shimcha ma'lumot olish uchun malumot kiriting",
         "from":"Boshlanishi",
         "perAdult":"Bir kishi uchun",
         "Enteryour_information":"Ma'lumotlaringizni kiriting",

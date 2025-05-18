@@ -1,10 +1,10 @@
 .slidediv {
-    background-image: url(../../assets/headerMain.jpg);
+    background-image: url(../../assets/Headersam0_auto.jpg);
     background-size: cover;
     background-position: center ;
     width: 100%;
-    height: 80vh;
-    margin-top: 4.5rem;
+    height: 60vh;
+    margin-top: 4rem;
 }
 
 
@@ -12,7 +12,7 @@
 
 
 .rgba-color {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.2);
     width: 100%;
     height: 100%;
     display: flex;
@@ -142,8 +142,12 @@
     }
 
     .slidediv {
-        height: 50vh;
+        height: 30vh;
         margin-top: 3.6rem;
+    }
+
+    .text-p-home {
+        letter-spacing: 4px;
     }
 }
 
