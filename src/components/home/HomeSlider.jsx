@@ -16,7 +16,6 @@ const HomeSlider = () => {
                     </div>
                     <div className="text-div">
                         <p className='text-p-home  mt-4'>{t("headerTarif")}!</p>
-
                     </div>
                     <a href="#ourTours" className='hidden md:block'>
 

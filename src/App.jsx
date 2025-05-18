@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import Header from './pages/Header';
 import Home from './pages/Home';
 import Footer from './pages/Footer';
@@ -9,6 +9,14 @@ import EventDetail from './components/events/EventDetail';
 import './i18n';
 
 function App() {
+
+  useLayoutEffect(() => {
+    let storedLang = localStorage.getItem("selectedLanguage")
+    
+    if (!storedLang) {
+      localStorage.setItem("selectedLanguage", "en")
+    }
+  }, [])
 
   return (
     <>
