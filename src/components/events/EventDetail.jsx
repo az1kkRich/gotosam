@@ -242,11 +242,11 @@ const EventDetail = () => {
                   <div className="pt-4 flex flex-col md:flex-row justify-between font-semibold">
                     <div>
                       <span>Total Guests: </span>
-                      <span className="text-red-500">{adults + children + infants}</span>
+                      <span className="text-red-500">{adults }</span>
                     </div>
                     <div>
                       <span>Total Price: </span>
-                      <span className="text-amber-700">${adults * event.price + children * 59 + infants * 43}</span>
+                      <span className="text-amber-700">${adults * event.price }</span>
                     </div>
                   </div>
                   <div className="w-full flex items-center">
