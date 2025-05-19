@@ -81,7 +81,7 @@ const EventCard = () => {
 
       {!loader && event.map((evnt) => (
 
-        <div className="col-md-6 col-xl-4 mb-3">
+        <div className="col-md-6 col-xl-4 mb-3" key={evnt._id}>
 
           <div className="tourcard m-1  border rounded shadow-sm bg-white">
             <img src={evnt.imagePath} className='w-full h-[200px]' alt="..." />

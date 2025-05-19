@@ -29,6 +29,8 @@ const TourDetail = () => {
   const [tour, setTour] = useState({})
   const [loading, setLoading] = useState(true)
 
+
+
   const currentLang = localStorage.getItem("selectedLanguage")
 
   const { id } = useParams()
@@ -44,24 +46,24 @@ const TourDetail = () => {
     const fetchTours = async () => {
       try {
         const response = await axios.get(`${envUrl}/tours/${id}`)
-        setTour(response.data)
-        setLoading(false)
+        setTour(response.data);
+        console.log(response.data);        
+        setLoading(false);             
       } catch (error) {
         console.error('Error fetching tours:', error);
 
       }
     }
 
+    
     fetchTours()
 
   }, [])
 
   
+  
 
-
-
-
-
+  
 
   // `useTranslation` hookini chaqirish
   const { t } = useTranslation();
@@ -91,6 +93,8 @@ const TourDetail = () => {
   };
 
 
+  
+
   // Guests sonini oshirish yoki kamaytirish
   const handleDecrement = (setter, value) => {
     if (value > 0) setter(value - 1);
@@ -105,7 +109,7 @@ const TourDetail = () => {
 
   // Guest row komponenti
   const guestRow = (label, ageRange, price, value, setter) => (
-    <div className="flex flex-col md:flex-row md:flex-wrap text-center items-center justify-between border-b py-3">
+    <div className="flex flex-col xl:flex-row md:flex-wrap text-center items-center justify-between border-b py-3">
       <div className="block">
 
         <p className="font-semibold">{label}</p>
@@ -210,7 +214,7 @@ const TourDetail = () => {
           <div className="max-w-[90rem] mx-auto px-4">
             <div className="flex flex-col md:flex-row gap-3">
               <div className="w-full md:w-4/6">
-                <TourCardImg />
+                <TourCardImg images={tour.images}/>
                 <div className="tourcard mt-3 p-4 border rounded shadow-sm bg-white">
                   <h4 className="text-xl md:text-2xl xl:text-3xl text-amber-700 font-medium">
                     {tour.title[currentLang]}
@@ -253,7 +257,7 @@ const TourDetail = () => {
 
               <div className="w-full md:w-2/6">
                 <form onSubmit={handleSubmit} className="bg-white p-4 border shadow-sm">
-                  <h1 className="font-semibold text-md md:text-xl lg:text-2xl text-yellow-600 font-mono">{t("tourCard.from")} $59.00</h1>
+                  <h1 className="font-semibold text-md md:text-xl lg:text-2xl text-yellow-600 font-mono">{t("tourCard.from")} ${tour.price.adult}</h1>
                   <p className="text-sm text-yellow-800 mt-[-7px]">{t("tourCard.perAdult")}</p>
                   <h1 className="font-medium mt-2 text-md md:text-xl lg:text-2xl">{t("tourCard.Enteryour_information")}</h1>
                   <TextField id="fullName" inputRef={fullNameRef} label="Fullname" variant="outlined" type="text" className="w-full mt-2" required />
@@ -281,17 +285,17 @@ const TourDetail = () => {
                   </div>
                   <div className="mt-3 w-full bg-white shadow-xl rounded-xl p-4">
                     <h2 className="text-lg font-bold text-gray-800">{t("tourCard.Select date and guests")}</h2>
-                    {guestRow(t("tourCard.Adults"), "8 - 80", 59, adults, setAdults)}
-                    {guestRow(t("tourCard.Children"), "3 - 7", 59, children, setChildren)}
-                    {guestRow(t("tourCard.Infants"), "0 - 2", 43, infants, setInfants)}
+                    {guestRow(t("tourCard.Adults"), "8 - 80", tour.price.adult, adults, setAdults)}
+                    {guestRow(t("tourCard.Children"), "3 - 7", tour.price.child, children, setChildren)}
+                    {guestRow(t("tourCard.Infants"), "0 - 2", tour.price.infant, infants, setInfants)}
                     <div className="pt-4 flex flex-col md:flex-row justify-between font-semibold">
                       <div>
                         <span>{t("tourCard.Total Guests")}: </span>
                         <span className="text-red-500">{adults + children + infants}</span>
                       </div>
                       <div>
-                        <span>{t("total.Total Price")}: </span>
-                        <span className="text-amber-700">${adults * 59 + children * 59 + infants * 43}</span>
+                        <span>{t("tourCard.Total Price")}: </span>
+                        <span className="text-amber-700">${adults * (tour.price.adult) + children * (tour.price.child) + infants * (tour.price.infant)}</span>
                       </div>
                     </div>
                     <div className="w-full flex items-center">

@@ -42,9 +42,8 @@ const ServiceDetail = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`${envUrl}/services/${id}`)
-        setService(res.data)
-        console.log(res.data);
-        setLoader(false)
+        setService(res.data);
+        setLoader(false);
 
       } catch (error) {
         console.log(error);

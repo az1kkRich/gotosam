@@ -1,41 +1,37 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
-import { baseUrl } from "./config";
-import './tour.css'
+import './tour.css';
 
-function TourCardImg() {
+function TourCardImg({ images }) {
   const settings = {
-    customPaging: function(i) {
+    customPaging: function (i) {
       return (
-        <a style={{ width: '100px' }}> 
-          <img src={`${baseUrl}/abstract0${i + 1}.jpg`}
+        <a style={{ width: '100px' }}>
+          <img
+            src={images[i]}
+            alt={`Thumbnail ${i + 1}`}
+            style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
           />
         </a>
       );
     },
     dots: true,
-    dotsClass: "slick-dots slick-thumb ",
+    dotsClass: "slick-dots slick-thumb",
     infinite: true,
     arrows: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1
   };
+
   return (
     <div className="slider-container mb-[5rem]">
       <Slider {...settings}>
-        <div>
-          <img src={baseUrl + "/abstract01.jpg"} className="tourminiimg" />
-        </div>
-        <div>
-          <img src={baseUrl + "/abstract02.jpg"} className="tourminiimg" />
-        </div>
-        <div>
-          <img src={baseUrl + "/abstract03.jpg"} className="tourminiimg" />
-        </div>
-        <div>
-          <img src={baseUrl + "/abstract04.jpg"} className="tourminiimg" />
-        </div>
+        {images.map((img, index) => (
+          <div key={index}>
+            <img src={img} alt={`Slide ${index + 1}`} className="tourminiimg" />
+          </div>
+        ))}
       </Slider>
     </div>
   );

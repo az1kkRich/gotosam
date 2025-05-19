@@ -46,10 +46,8 @@ const EventDetail = () => {
     const fetchEvents = async () => {
       try {
         const response = await axios.get(`${envUrl}/events/${id}`)
-        setEvent(response.data)
-        console.log(response.data);
-
-        setLoading(false)
+        setEvent(response.data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching events:', error);
 

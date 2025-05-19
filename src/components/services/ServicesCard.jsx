@@ -21,9 +21,8 @@ const ServicesCard = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`${envUrl}/services`)
-        setService(res.data)
-        console.log(res.data);
-        setLoader(false)
+        setService(res.data);
+        setLoader(false);
 
       } catch (error) {
         console.log(error);
@@ -91,7 +90,7 @@ const ServicesCard = () => {
     )}
 
     {!loader && service.map((ser) => (
-        <div className='col-md-4 col-xl-3 mb-3' key={ser._d}>
+        <div className='col-md-4 col-xl-3 mb-3' key={ser._id}>
           <div className="m-1  border rounded shadow-sm hover:shadow-lg! bg-white">
             <img src={ser.imagePath} alt="This is services img" className='w-full h-[10rem]' />
             <div className="my-3 mx-4 flex flex-col justify-center items-center">
