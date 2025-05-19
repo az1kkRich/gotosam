@@ -22,7 +22,7 @@ const EventCard = () => {
       try {
         const res = await axios.get(`${envUrl}/events`)
         setEvent(res.data)
-        console.log(res.data);
+        // console.log(res.data);
         setLoader(false)
 
       } catch (error) {
@@ -138,7 +138,10 @@ const EventCard = () => {
               </div>
             </div>
 
+            <Link to={`/events/${evnt._id}`}>
+              <button className='btn btn-outline-success mb-3 block mx-auto'>{t("more")}</button>
 
+            </Link>
 
           </div>
         </div>

@@ -7,6 +7,7 @@ import TourDetail from './components/tours/TourDetail';
 import EventDetail from './components/events/EventDetail';
 
 import './i18n';
+import ServiceDetail from './components/services/ServiceDetail';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path='tours/:id' element={<TourDetail />} />
         <Route path='events/:id' element={<EventDetail />} />
+        <Route path='service/:id' element={<ServiceDetail />} />
       </Routes>
 
       <Footer />

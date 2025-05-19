@@ -14,13 +14,6 @@ const Services = () => {
                 <div className="container">
                     <div className="row">
                         <ServicesCard />
-                        <ServicesCard />
-                        <ServicesCard />
-                        <ServicesCard />
-                        <ServicesCard />
-                        <ServicesCard />
-                        <ServicesCard />
-                        <ServicesCard />
                     </div>
 
                 </div>
