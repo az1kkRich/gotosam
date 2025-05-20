@@ -8,7 +8,7 @@ import { TextField } from "@mui/material";
 import TourCardImg from "./TourImgSlick";
 import Qulayliklar from "./qulayliklar";
 import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const TourDetail = () => {
@@ -18,10 +18,14 @@ const TourDetail = () => {
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
+  const [date, setDate] = useState("");
+
   const [isDisabled, setIsDisabled] = useState(false);
 
   const fullNameRef = useRef(null);
   const submitBtn = useRef(null);
+
+  const navigate = useNavigate()
 
 
   // Fetch api
@@ -47,23 +51,23 @@ const TourDetail = () => {
       try {
         const response = await axios.get(`${envUrl}/tours/${id}`)
         setTour(response.data);
-        console.log(response.data);        
-        setLoading(false);             
+        console.log(response.data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching tours:', error);
 
       }
     }
 
-    
+
     fetchTours()
 
   }, [])
 
-  
-  
 
-  
+
+
+
 
   // `useTranslation` hookini chaqirish
   const { t } = useTranslation();
@@ -82,18 +86,51 @@ const TourDetail = () => {
 
 
 
+
+
+
   // Formani yuborish funksiyasi
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!isValidPhoneNumber(phone)) {
       alert("Please enter your phone number correctly!");
       return;
     }
-    alert("Form submitted successfully!");
+
+    const totalPrice =
+      adults * tour.price.adult +
+      children * tour.price.child +
+      infants * tour.price.infant;
+
+
+    const formData = {
+      tour_name:e.target.tour_name.value,
+      fullName: fullNameRef.current?.value,
+      email: e.target.email.value,
+      phone: phone,
+      date: date,
+      guests: {
+        adults,
+        children,
+        infants
+      },
+      total:totalPrice
+    };
+
+    try {
+      await axios.post(`${envUrl}/send-booking`, formData);
+      alert("✅ Your request has been sent!");
+      navigate('/')
+    } catch (error) {
+      console.error("❌ Error submitting form:", error);
+      alert("❌ Failed to send request. Try again later.");
+    }
   };
 
 
-  
+
+
 
   // Guests sonini oshirish yoki kamaytirish
   const handleDecrement = (setter, value) => {
@@ -181,46 +218,46 @@ const TourDetail = () => {
         <>
 
 
-        <div className="container px-4 mt-18">
-          <div className="row">
+          <div className="container px-4 mt-18">
+            <div className="row">
 
-            <div className="col-md-8 col-xl-8 mb-3">
-              <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white animate-pulse">
-                <div className="w-full h-[200px] bg-gray-300 rounded"></div>
-                <div className="mt-2 h-6 bg-gray-300 rounded w-3/4"></div>
-                <div className="h-4 bg-gray-300 rounded w-5/6 mt-2"></div>
-                <div className="flex justify-content-between gap-1 items-center mt-3 md:block xl:flex">
-                  <div className="w-3/5 md:w-full xl:w-1/2  ">
-                    <div className="mb-0 h-4 bg-gray-300 rounded w-1/3"></div>
-                    <div className="h-6 bg-gray-300 rounded w-1/2 mt-2"></div>
+              <div className="col-md-8 col-xl-8 mb-3">
+                <div className="tourcard m-1 px-3 py-4 border rounded shadow-sm bg-white animate-pulse">
+                  <div className="w-full h-[200px] bg-gray-300 rounded"></div>
+                  <div className="mt-2 h-6 bg-gray-300 rounded w-3/4"></div>
+                  <div className="h-4 bg-gray-300 rounded w-5/6 mt-2"></div>
+                  <div className="flex justify-content-between gap-1 items-center mt-3 md:block xl:flex">
+                    <div className="w-3/5 md:w-full xl:w-1/2  ">
+                      <div className="mb-0 h-4 bg-gray-300 rounded w-1/3"></div>
+                      <div className="h-6 bg-gray-300 rounded w-1/2 mt-2"></div>
+                    </div>
+
                   </div>
-                  
                 </div>
-              </div>
 
+              </div>
             </div>
           </div>
-        </div>
-         
+
         </>
 
       )}
 
 
 
-      {!loading &&  (
+      {!loading && (
 
         <div className="bg-red-100 mt-[3rem] mb-[-1.5rem] py-5">
           <div className="max-w-[90rem] mx-auto px-4">
             <div className="flex flex-col md:flex-row gap-3">
               <div className="w-full md:w-4/6">
-                <TourCardImg images={tour.images}/>
+                <TourCardImg images={tour.images} />
                 <div className="tourcard mt-3 p-4 border rounded shadow-sm bg-white">
                   <h4 className="text-xl md:text-2xl xl:text-3xl text-amber-700 font-medium">
                     {tour.title[currentLang]}
                   </h4>
                   <p className="text-sm md:text-lg">
-                  {tour.shortDescription[currentLang]}
+                    {tour.shortDescription[currentLang]}
                   </p>
                   {/* <div className="locationdiv mt-3 flex items-center justify-between gap-2 xl:gap-4 w-full">
                 <span className="ms-2 font-bold">Tashkent</span>
@@ -259,12 +296,14 @@ const TourDetail = () => {
                 <form onSubmit={handleSubmit} className="bg-white p-4 border shadow-sm">
                   <h1 className="font-semibold text-md md:text-xl lg:text-2xl text-yellow-600 font-mono">{t("tourCard.from")} ${tour.price.adult}</h1>
                   <p className="text-sm text-yellow-800 mt-[-7px]">{t("tourCard.perAdult")}</p>
+                  <input type="text" value={tour.title.uz} name="tour_name" className="hidden"/>
                   <h1 className="font-medium mt-2 text-md md:text-xl lg:text-2xl">{t("tourCard.Enteryour_information")}</h1>
-                  <TextField id="fullName" inputRef={fullNameRef} label="Fullname" variant="outlined" type="text" className="w-full mt-2" required />
-                  <TextField id="email" label="Email" variant="outlined" type="email" className="w-full mt-3" required />
+                  <TextField id="fullName" name="full_name" inputRef={fullNameRef} label="Fullname" variant="outlined" type="text" className="w-full mt-2" required />
+                  <TextField id="email" name="email" label="Email" variant="outlined" type="email" className="w-full mt-3" required />
                   <PhoneInput
                     international
                     defaultCountry="UZ"
+                    name="phone_number"
                     value={phone}
                     onChange={handleChange}
                     className="border p-3 rounded w-full mt-3"
@@ -279,6 +318,8 @@ const TourDetail = () => {
                       <input
                         required
                         type="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
                         className="w-full appearance-none border border-gray-300 rounded-xl py-3 px-4 pr-10 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
                       />
                     </div>

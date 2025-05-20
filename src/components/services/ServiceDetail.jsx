@@ -5,7 +5,7 @@ import "react-phone-number-input/style.css";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
@@ -15,12 +15,13 @@ const ServiceDetail = () => {
   const [phone, setPhone] = useState("");
   const [isValid, setIsValid] = useState(true);
   const [adults, setAdults] = useState(1);
+  const [date, setDate] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
 
   const fullNameRef = useRef(null);
   const submitBtn = useRef(null);
 
-
+  const navigate = useNavigate()
 
 
 
@@ -80,16 +81,50 @@ const ServiceDetail = () => {
 
 
 
+  
+
+
 
   // Formani yuborish funksiyasi
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!isValidPhoneNumber(phone)) {
       alert("Please enter your phone number correctly!");
       return;
     }
-    alert("Form submitted successfully!");
+
+    const totalPrice = adults * service.price
+
+
+    const formData = {
+      service_name:e.target.service_name.value,
+      fullName: fullNameRef.current?.value,
+      email: e.target.email.value,
+      phone: phone,
+      date: date,
+      guest:adults,
+      total:totalPrice
+    };
+
+    try {
+      await axios.post(`${envUrl}/send-service`, formData);
+      alert("✅ Your request has been sent!");
+      navigate('/')
+    } catch (error) {
+      console.error("❌ Error submitting form:", error);
+      alert("❌ Failed to send request. Try again later.");
+    }
   };
+
+
+
+
+
+
+
+
+
 
   // Mehmonlar sonini oshirish yoki kamaytirish
   const handleDecrement = (setter, value) => {
@@ -157,7 +192,7 @@ const ServiceDetail = () => {
 
 
       {!loader && (
-        <div className="bg-green-200 mt-[1rem] mb-[-1.5rem] py-5">
+        <div className="bg-green-100 mt-[1rem] mb-[-1.5rem] py-5">
 
 
           <div className="max-w-[90rem] mx-auto flex flex-row items-center mt-4 px-4">
@@ -176,12 +211,13 @@ const ServiceDetail = () => {
 
 
 
-              <form onSubmit={handleSubmit} className=" p-4 border w-full md:w-1/2  flex flex-col md:flex-row">
+              <form onSubmit={handleSubmit} className=" p-4 border w-full md:w-1/2  flex flex-col md:flex-row items-start">
                 <div className="w-full md:w-1/2 pr-0 md:pr-10">
 
                   {/* <h1 className="font-semibold text-md md:text-xl lg:text-2xl text-yellow-600 font-mono">{t("tourCard.from")} ${service.price}</h1> */}
                   <p className="text-sm text-yellow-800 mt-[-7px]">{t("tourCard.ReqForMore")}</p>
                   <h1 className="font-medium mt-2 text-md md:text-xl lg:text-2xl">{t("tourCard.Enteryour_information")}</h1>
+                  <input type="text" name="service_name" className="hidden" value={service.title.uz} />
                   <TextField id="fullName" inputRef={fullNameRef} label="Fullname" variant="outlined" type="text" className="w-full mt-2" required />
                   <TextField id="email" label="Email" variant="outlined" type="email" className="w-full mt-3" required />
                   <PhoneInput
@@ -194,9 +230,21 @@ const ServiceDetail = () => {
                   />
                   {!isValid && <p className="text-red-500 text-sm mt-2">❌ Invalid phone number</p>}
                   {isValid && phone && <p className="text-green-600 text-sm mt-2">✅ Correct phone number</p>}
+                  <div className="w-full mt-2 mx-auto">
+                    <label className="block text-gray-700 font-medium mb-1">Choose a date</label>
+                    <div className="relative">
+                      <input
+                        required
+                        type="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        className="w-full appearance-none border border-gray-300 rounded-xl py-3 px-4 pr-10 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="w-full md:w-1/2 mt-3  bg-white shadow-md rounded-xl p-4">
+                <div className="w-full md:w-1/2 mt-3   bg-white shadow-md rounded-xl p-4">
                   <h2 className="text-lg font-bold text-gray-800">{t("tourCard.Select guests")}</h2>
                   {guestRow(t("cardInPrice"), service.price, adults, setAdults)}
                   <div className="pt-4 flex flex-col md:flex-row justify-between font-semibold">

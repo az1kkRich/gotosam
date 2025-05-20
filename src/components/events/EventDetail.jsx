@@ -5,7 +5,7 @@ import "react-phone-number-input/style.css";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
@@ -21,6 +21,8 @@ const EventDetail = () => {
 
   const fullNameRef = useRef(null);
   const submitBtn = useRef(null);
+
+  const navigate = useNavigate()
 
 
 
@@ -85,15 +87,52 @@ const EventDetail = () => {
 
 
 
+
   // Formani yuborish funksiyasi
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!isValidPhoneNumber(phone)) {
       alert("Please enter your phone number correctly!");
       return;
     }
-    alert("Form submitted successfully!");
+
+    const totalPrice = adults * event.price
+
+
+    const formData = {
+      event_name: e.target.event_name.value,
+      startDate: e.target.startDate.value,
+      endDate: e.target.endDate.value,
+      fullName: fullNameRef.current?.value,
+      email: e.target.email.value,
+      phone: phone,
+      guest: adults,
+      total: totalPrice
+    };
+
+    try {
+      await axios.post(`${envUrl}/send-event`, formData);
+      alert("✅ Your request has been sent!");
+      navigate('/')
+    } catch (error) {
+      console.error("❌ Error submitting form:", error);
+      alert("❌ Failed to send request. Try again later.");
+    }
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // Mehmonlar sonini oshirish yoki kamaytirish
   const handleDecrement = (setter, value) => {
@@ -160,7 +199,7 @@ const EventDetail = () => {
 
 
       {!loading && (
-        <div className="bg-green-200 mt-[1rem] mb-[-1.5rem] py-5">
+        <div className="bg-gray-100 mt-[1rem] mb-[-1.5rem] py-5">
 
           <img src={event.imagePath} alt="Event image" className="w-full h-[15rem] md:h-[35rem]" />
 
@@ -184,7 +223,7 @@ const EventDetail = () => {
                     day: 'numeric',
                     hour: '2-digit',
                     minute: '2-digit'
-                  
+
                   })};
 
                 </h3>
@@ -201,7 +240,7 @@ const EventDetail = () => {
                     day: 'numeric',
                     hour: '2-digit',
                     minute: '2-digit'
-                  
+
                   })};
 
                 </h3>
@@ -218,6 +257,9 @@ const EventDetail = () => {
                   {/* <h1 className="font-semibold text-md md:text-xl lg:text-2xl text-yellow-600 font-mono">{t("tourCard.from")} ${event.price}</h1> */}
                   <p className="text-sm text-yellow-800 mt-[-7px]">{t("tourCard.ReqForMore")}</p>
                   <h1 className="font-medium mt-2 text-md md:text-xl lg:text-2xl">{t("tourCard.Enteryour_information")}</h1>
+                  <input type="text" name="event_name" value={event.title.uz} className="hidden" />
+                  <input type="text" name="startDate" value={event.startDate} className="hidden" />
+                  <input type="text" name="endDate" value={event.endDate} className="hidden" />
                   <TextField id="fullName" inputRef={fullNameRef} label="Fullname" variant="outlined" type="text" className="w-full mt-2" required />
                   <TextField id="email" label="Email" variant="outlined" type="email" className="w-full mt-3" required />
                   <PhoneInput
@@ -238,11 +280,11 @@ const EventDetail = () => {
                   <div className="pt-4 flex flex-col md:flex-row justify-between font-semibold">
                     <div>
                       <span>{t("tourCard.Total Guests")}: </span>
-                      <span className="text-red-500">{adults }</span>
+                      <span className="text-red-500">{adults}</span>
                     </div>
                     <div>
                       <span>{t("tourCard.Total Price")}: </span>
-                      <span className="text-amber-700">${adults * event.price }</span>
+                      <span className="text-amber-700">${adults * event.price}</span>
                     </div>
                   </div>
                   <div className="w-full flex items-center">
