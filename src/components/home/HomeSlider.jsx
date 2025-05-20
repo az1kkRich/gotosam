@@ -12,7 +12,7 @@ const HomeSlider = () => {
 
                     <div className="text-div">
 
-                        <h1 className='text-home '>Welcome to GotoSamarkang.com</h1>
+                        <h1 className='text-home '>GotoSamarkand.com</h1>
                     </div>
                     <div className="text-div">
                         <p className='text-p-home  mt-4'>{t("headerTarif")}!</p>

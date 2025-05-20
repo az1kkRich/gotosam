@@ -6,7 +6,6 @@ import Rating from "@mui/material/Rating";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 import TourCardImg from "./TourImgSlick";
-import Qulayliklar from "./qulayliklar";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -51,7 +50,6 @@ const TourDetail = () => {
       try {
         const response = await axios.get(`${envUrl}/tours/${id}`)
         setTour(response.data);
-        console.log(response.data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching tours:', error);
@@ -199,9 +197,6 @@ const TourDetail = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Qulayliklar komponenti uchun memoizatsiya
-  const facilities = useMemo(() => <Qulayliklar iconSize={iconSize} />, [iconSize]);
-
   // Telefon raqamini boshqarish
   const handleChange = (value) => {
     setPhone(value);
@@ -264,7 +259,8 @@ const TourDetail = () => {
                 <hr className="w-[80%]" />
                 <span className="ms-2 font-bold">Samarqand</span>
               </div> */}
-                  {facilities}
+
+              
                   <p className="mainDes mt-4 mb-3">
                     {tour.longDescription[currentLang]}
                   </p>
