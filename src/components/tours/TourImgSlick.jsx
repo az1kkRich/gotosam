@@ -10,7 +10,8 @@ function TourCardImg({ images }) {
           <img
             src={images[i]}
             alt={`Thumbnail ${i + 1}`}
-            style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+            style={{ objectFit: 'cover' }}
+            className="img-fluid"
           />
         </a>
       );
