@@ -16,7 +16,7 @@ const resources = {
 };
 
 // 💾 LocalStorage'dan tilni o‘qish
-const savedLanguage = localStorage.getItem("selectedLanguage") || "en";
+const savedLanguage = localStorage.getItem("selectedGotosamLanguage") || "en";
 
 // i18n sozlamalari
 i18n

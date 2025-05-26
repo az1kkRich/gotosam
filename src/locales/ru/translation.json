@@ -11,6 +11,10 @@
     "more":"Больше",
     "datetime":"Дата и время",
     "enddatetime":"Дата и время окончания",
+    "noEvents":"Пока нет событий",
+    "tourPackagesInfo":"Удобные туристические пакеты",
+    "servicesInfo":"Услуги для вашей поездки",
+    "eventsInfo":"Интересные события",
 
     "tourCard": {
         "Breakfast":"Завтрак",

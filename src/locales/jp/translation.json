@@ -11,6 +11,10 @@
     "more":"もっと",
     "datetime":"日付と時刻",
     "enddatetime":"終了日時",
+    "noEvents":"まだイベントはありません",
+    "tourPackagesInfo":"便利なツアーパッケージ",
+    "servicesInfo":"旅行のためのサービス",
+    "eventsInfo":"興味深いイベント",
 
     "tourCard": {
         "Breakfast":"朝食",

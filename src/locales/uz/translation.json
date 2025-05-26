@@ -11,6 +11,10 @@
     "more":"Batafsil",
     "datetime":"Boshlanish kuni va Vaqti",
     "enddatetime":"Tugash kuni va Vaqti",
+    "noEvents":"Hozircha Eventlar Yo'q",
+    "tourPackagesInfo":"Qulay Tour To'plamlari",
+    "servicesInfo":"Sayohatingiz uchun Xizmatlar",
+    "eventsInfo":"Qiziqarli Eventlar",
 
     "tourCard": {
         "Breakfast":"Nonushta",

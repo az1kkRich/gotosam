@@ -19,7 +19,7 @@ const LanguageSelector = () => {
   const { t, i18n } = useTranslation();
 
   // localStorage'dan tilni o‘qish, yo‘q bo‘lsa default "en"
-  const storedLang = localStorage.getItem("selectedLanguage");
+  const storedLang = localStorage.getItem("selectedGotosamLanguage");
   const initialLang = languages.find((lang) => lang.value === storedLang) || languages[0];
 
   const [selectedLanguage, setSelectedLanguage] = useState(initialLang);
@@ -37,7 +37,7 @@ const LanguageSelector = () => {
     if (language) {
       i18n.changeLanguage(language.value);
       setSelectedLanguage(language);
-      localStorage.setItem("selectedLanguage", language.value); // Tilni saqlash
+      localStorage.setItem("selectedGotosamLanguage", language.value); // Tilni saqlash
     }
   };
 

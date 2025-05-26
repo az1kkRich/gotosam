@@ -9,7 +9,7 @@ const TourCard = () => {
     const [tours, setTours] = useState([])
     const [loading, setLoading] = useState(true)
 
-    const currentLang = localStorage.getItem("selectedLanguage")
+    const currentLang = localStorage.getItem("selectedGotosamLanguage")
 
    
     

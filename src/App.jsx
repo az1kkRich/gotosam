@@ -12,10 +12,10 @@ import ServiceDetail from './components/services/ServiceDetail';
 function App() {
 
   useLayoutEffect(() => {
-    let storedLang = localStorage.getItem("selectedLanguage")
+    let storedLang = localStorage.getItem("selectedGotosamLanguage")
     
     if (!storedLang) {
-      localStorage.setItem("selectedLanguage", "en")
+      localStorage.setItem("selectedGotosamLanguage", "en")
     }
   }, [])
 

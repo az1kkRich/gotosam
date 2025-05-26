@@ -11,6 +11,10 @@
     "more":"More Info",
     "datetime":"Date and Time",
     "enddatetime":"End Date and Time",
+    "noEvents":"No Events Yet",
+    "tourPackagesInfo":"Convenient Tour Packages",
+    "servicesInfo":"Services for your trip",
+    "eventsInfo":"Interesting Events",
 
     "tourCard": {
         "Breakfast":"Breakfast",

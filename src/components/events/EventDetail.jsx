@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
-import { CalendarArrowDown, CalendarArrowUp, CalendarArrowUpIcon, Clock3, Minus, Plus, Send, SendHorizontal } from "lucide-react";
+import { ArrowDownIcon as CalendarArrowDown, CalendarIcon , CalendarIcon as CalendarArrowUp, Clock3, Minus, Plus, Send, SendHorizontal } from 'lucide-react';
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import Button from "@mui/material/Button";
@@ -18,6 +18,7 @@ const EventDetail = () => {
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const fullNameRef = useRef(null);
   const submitBtn = useRef(null);
@@ -33,7 +34,7 @@ const EventDetail = () => {
   const [event, setEvent] = useState({})
   const [loading, setLoading] = useState(true)
 
-  const currentLang = localStorage.getItem("selectedLanguage")
+  const currentLang = localStorage.getItem("selectedGotosamLanguage")
 
   const { id } = useParams()
 
@@ -91,14 +92,15 @@ const EventDetail = () => {
   // Formani yuborish funksiyasi
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     if (!isValidPhoneNumber(phone)) {
       alert("Please enter your phone number correctly!");
+      setIsSubmitting(false);
       return;
     }
 
     const totalPrice = adults * event.price
-
 
     const formData = {
       event_name: e.target.event_name.value,
@@ -118,6 +120,8 @@ const EventDetail = () => {
     } catch (error) {
       console.error("❌ Error submitting form:", error);
       alert("❌ Failed to send request. Try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -201,7 +205,7 @@ const EventDetail = () => {
       {!loading && (
         <div className="bg-gray-100 mt-[1rem] mb-[-1.5rem] py-5">
 
-          <img src={event.imagePath} alt="Event image" className="w-full h-[15rem] md:h-[35rem]" />
+          <img src={event.imagePath || "/placeholder.svg"} alt="Event image" className="w-full h-[15rem] md:h-[35rem]" />
 
           <div className="max-w-[90rem] mx-auto flex flex-col items-center mt-[-4rem] px-4">
 
@@ -291,12 +295,19 @@ const EventDetail = () => {
                     <Button
                       variant="contained"
                       ref={submitBtn}
-                      disabled={isDisabled}
+                      disabled={isDisabled || isSubmitting}
                       type="submit"
                       className="mt-4 w-1/2 mx-auto"
-                      endIcon={<SendHorizontal />}
+                      endIcon={isSubmitting ? null : <SendHorizontal />}
                     >
-                      Send
+                      {isSubmitting ? (
+                        <div className="flex items-center gap-2">
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          Sending...
+                        </div>
+                      ) : (
+                        "Send"
+                      )}
                     </Button>
                   </div>
                 </div>

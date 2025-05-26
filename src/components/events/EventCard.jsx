@@ -12,7 +12,7 @@ const EventCard = () => {
 
   const envUrl = import.meta.env.VITE_API_URL
 
-  const currentLang = localStorage.getItem("selectedLanguage")
+  const currentLang = localStorage.getItem("selectedGotosamLanguage")
 
 
 
@@ -77,7 +77,14 @@ const EventCard = () => {
         </>
 
       )}
+      {event.length === 0 && !loader && (
+          <h1 className='text-center text-4xl mb-4 underline italic text-red-500 font-bold'> {t("noEvents")} </h1>
 
+      )}
+
+      {event.length > 0 && !loader && (
+          <h1 className='text-center text-4xl mb-4 underline italic text-red-500 font-bold'> {t("events")} </h1>
+      )}
       {!loader && event.map((evnt) => (
 
         <div className="col-md-6 col-xl-4 mb-3" key={evnt._id}>

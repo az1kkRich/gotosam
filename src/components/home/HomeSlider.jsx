@@ -46,33 +46,33 @@ const HomeSlider = () => {
                     </a>
                 </div> */}
 
-                <div className="w-[95vw] md:w-[85vw] xl:w-[60vw] flex flex-row  ">
-                    <div className="w-1/3">
+                <div className="w-[95vw] md:w-[85vw] xl:w-[75vw] flex flex-row  ">
+                    <div className="w-1/3 h-auto">
                         <div className="bg-[rgba(34,197,94,0.9)] px-2 pt-1 md:pt-2! md:pb-3! lg:pt-3! lg:pb-4! pb-2 flex flex-col justify-center items-center hover:bg-emerald-700  duration-300">
                             <a href="#ourTours" >
                                 <MapPlus size={homeIconSize} color='#c8ff00' className='mx-auto' />
-                                <h2 className='text-white text-[7px] md:text-[13px] xl:text-xl font-bold  '>Qulay Tour To'plami</h2>
+                                <h2 className='text-white text-[7px] md:text-[13px] xl:text-xl font-bold  '>{t("tourPackagesInfo")}</h2>
 
                             </a>
                         </div>
                     </div>
-                    <div className="w-1/3">
+                    <div className="w-1/3 h-auto">
                         <div
                             className="bg-[rgba(34,197,94,0.9)] px-2 pt-1 md:pt-2! md:pb-3! lg:pt-3! lg:pb-4! pb-2 flex flex-col 
                             justify-center items-center hover:bg-emerald-700  duration-300 border-l border-amber-300 ">
                             <a href="#services" >
                                 <Globe size={homeIconSize} color='#c8ff00' className='mx-auto' />
-                                <h2 className='text-white text-[7px] md:text-[13px] xl:text-xl font-bold  '>Safaringiz Uchun Xizmatlar</h2>
+                                <h2 className='text-white text-[7px] md:text-[13px] xl:text-xl font-bold  '>{t("servicesInfo")}</h2>
                             </a>
                         </div>
                     </div>
-                    <div className="w-1/3">
+                    <div className="w-1/3 h-auto">
                         <div
                             className="bg-[rgba(34,197,94,0.9)] px-2 pt-1 md:pt-2! md:pb-3! lg:pt-3! lg:pb-4! pb-2 flex flex-col 
                         justify-center items-center hover:bg-emerald-700  duration-300 border-l border-amber-300">
                             <a href="#events" >
                                 <CalendarHeart size={homeIconSize} color='#c8ff00' className='mx-auto' />
-                                <h2 className='text-white text-[7px] md:text-[13px] xl:text-xl font-bold  '>Qiziqarli Tadbirlar</h2>
+                                <h2 className='text-white text-[7px] md:text-[13px] xl:text-xl font-bold  '>{t("eventsInfo")}</h2>
 
                             </a>
                         </div>
