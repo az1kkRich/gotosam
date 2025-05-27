@@ -46,7 +46,7 @@ const HomeSlider = () => {
                     </a>
                 </div> */}
 
-                <div className="w-[95vw] md:w-[85vw] xl:w-[75vw] flex flex-row  ">
+                <div className="w-[95vw] hidden md:w-[86vw] md:flex xl:w-[75vw]   ">
                     <div className="w-1/3 h-auto">
                         <div className="bg-[rgba(34,197,94,0.9)] px-2 pt-1 md:pt-2! md:pb-3! lg:pt-3! lg:pb-4! pb-2 flex flex-col justify-center items-center hover:bg-emerald-700  duration-300">
                             <a href="#ourTours" >
