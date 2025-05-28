@@ -261,9 +261,9 @@ const EventDetail = () => {
                   {/* <h1 className="font-semibold text-md md:text-xl lg:text-2xl text-yellow-600 font-mono">{t("tourCard.from")} ${event.price}</h1> */}
                   <p className="text-sm text-yellow-800 mt-[-7px]">{t("tourCard.ReqForMore")}</p>
                   <h1 className="font-medium mt-2 text-md md:text-xl lg:text-2xl">{t("tourCard.Enteryour_information")}</h1>
-                  <input type="text" name="event_name" value={event.title.uz} className="hidden" />
-                  <input type="text" name="startDate" value={event.startDate} className="hidden" />
-                  <input type="text" name="endDate" value={event.endDate} className="hidden" />
+                  <input type="text" name="event_name" defaultValue={event.title.uz} className="hidden" />
+                  <input type="text" name="startDate" defaultValue={event.startDate} className="hidden" />
+                  <input type="text" name="endDate" defaultValue={event.endDate} className="hidden" />
                   <TextField id="fullName" inputRef={fullNameRef} label="Fullname" variant="outlined" type="text" className="w-full mt-2" required />
                   <TextField id="email" label="Email" variant="outlined" type="email" className="w-full mt-3" required />
                   <PhoneInput

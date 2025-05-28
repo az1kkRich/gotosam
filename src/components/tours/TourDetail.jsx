@@ -254,7 +254,7 @@ const TourDetail = () => {
                     {t("tourCard.from")} ${tour.price.adult}
                   </h1>
                   <p className="text-sm text-yellow-800 mt-[-7px]">{t("tourCard.perAdult")}</p>
-                  <input type="text" value={tour.title.uz} name="tour_name" className="hidden" />
+                  <input type="text" defaultValue={tour.title.uz} name="tour_name" className="hidden" />
                   <h1 className="font-medium mt-2 text-md md:text-xl lg:text-2xl">
                     {t("tourCard.Enteryour_information")}
                   </h1>

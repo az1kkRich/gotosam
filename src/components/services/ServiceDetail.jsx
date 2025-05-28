@@ -197,7 +197,7 @@ const ServiceDetail = () => {
                   <h1 className="font-medium mt-2 text-md md:text-xl lg:text-2xl">
                     {t("tourCard.Enteryour_information")}
                   </h1>
-                  <input type="text" name="service_name" className="hidden" value={service.title.uz} />
+                  <input type="text" name="service_name" className="hidden" defaultValue={service.title.uz} />
                   <TextField
                     id="fullName"
                     inputRef={fullNameRef}
