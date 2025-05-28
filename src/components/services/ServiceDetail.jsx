@@ -46,7 +46,7 @@ const ServiceDetail = () => {
     }
 
     fetchData()
-  }, [])
+  }, [id])
 
   // react i18next
   const { t } = useTranslation()

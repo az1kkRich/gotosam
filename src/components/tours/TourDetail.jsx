@@ -52,7 +52,7 @@ const TourDetail = () => {
     }
 
     fetchTours()
-  }, [])
+  }, [id])
 
   // `useTranslation` hookini chaqirish
   const { t } = useTranslation()
