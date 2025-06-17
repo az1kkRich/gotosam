@@ -16,7 +16,7 @@ const Header = () => {
 
           <div className="hd-title">
             <Link to="/"  >
-              <img src={GotosamLogo} className='w-[200px] h-12' alt="" />
+              <img src={GotosamLogo} className='w-[180px] h-12' alt="" />
 
             </Link>
           </div>

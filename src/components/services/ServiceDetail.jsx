@@ -182,7 +182,7 @@ const ServiceDetail = () => {
           <div className="max-w-[90rem] mx-auto flex flex-row items-center mt-4 px-4">
             <div className="w-full flex flex-col xl:flex-row rounded-xl shadow bg-white ">
               <div className="p-4 w-full xl:w-1/2">
-                <img src={service.imagePath || "/placeholder.svg"} className="w-full h-[25rem] xl:h-auto" alt="" />
+                <img src={service.imagePath || "/placeholder.svg"} className="w-full h-[10rem] md:h-[25rem] xl:h-auto" alt="" />
                 <h1 className="font-semibold text-md md:text-xl xl:text-4xl">{service.title[currentLang]}</h1>
                 <h3 className="text-sm md:text-md xl:text-xl">{service.description[currentLang]}</h3>
               </div>

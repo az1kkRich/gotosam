@@ -205,7 +205,11 @@ const EventDetail = () => {
       {!loading && (
         <div className="bg-gray-100 mt-[1rem] mb-[-1.5rem] py-5">
 
-          <img src={event.imagePath || "/placeholder.svg"} alt="Event image" className="w-full h-[15rem] md:h-[35rem]" />
+          <div className="container px-2 md:px-20!">
+            <img src={event.imagePath || "/placeholder.svg"} alt="Event image" className="w-full h-[15rem] md:h-[35rem]" />
+
+          </div>
+
 
           <div className="max-w-[90rem] mx-auto flex flex-col items-center mt-[-4rem] px-4">
 

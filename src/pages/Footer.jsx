@@ -1,29 +1,32 @@
 import { Facebook, Instagram, Send, Youtube } from 'lucide-react'
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  
+  const { t } = useTranslation();
   return (
     <>
       <div id="footer">
         <div className="hrgba">
           <div className="container text-center md:text-start! px-4 pt-4 flex flex-col md:flex-row md:flex-wrap">
-            <div className='w-full md:w-2/5'>
-              <h3 className='text-xl  text-blue-200'>© 2024 GoToSamarkand. All rights reserved.</h3>
-              <p className=' text-blue-200'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum, nulla?</p>
+            <div className='w-full md:w-2/5 pr-0 md:pr-3'>
+              <h3 className='text-xl  text-blue-200'>{t("copyright")}</h3>
+              <p className=' text-blue-300'>{t("footerInfo")}</p>
 
             </div>
-            <div className='  w-full md:w-1/5!'>
+            <div className='pl-0 md:pl-3 mt-2 text-xl w-full md:w-1/5!'>
               <a href="#ourTours">
-                <p className='text-blue-200'>Our Tours</p>
+                <p className='text-blue-200'>{t("tours")}</p>
               </a>
               <a href="#services">
-                <p className='text-blue-200'>Services</p>
+                <p className='text-blue-200'>{t("services")}</p>
               </a>
               <a href="#galery">
-                <p className='text-blue-200'>Gallery</p>
+                <p className='text-blue-200'>{t("gallery")}</p>
               </a>
               <a href="#events">
-                <p className='text-blue-200'>See all Events</p>
+                <p className='text-blue-200'>{t("events")}</p>
               </a>
             </div>
             <div className=' w-full md:w-2/5'>
@@ -41,7 +44,7 @@ const Footer = () => {
                   <Send color='yellow' />
                 </a>
               </div>
-              <p className='text-blue-200'>Follow us on social media</p>
+              <p className='text-blue-200 mb-3'>{t("followUs")}!</p>
               <div className="row g-3 mb-3 align-items-center">
                 
                 <div className="col-auto">
